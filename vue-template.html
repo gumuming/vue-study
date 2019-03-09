@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>template languge</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		
+		<div id="app">
+			<div>{{name  + ' Lee'}}</div>
+			<div v-text ="name + ' Lee'"></div>
+			<div v-html = "name  + ' Lee'"></div>
+			
+		</div>
+		
+		<script>
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					name:"dell"
+				}
+			})
+			
+		</script>
+		
+		
+	</body>
+</html>

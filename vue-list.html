@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue 列表渲染</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<!-- 修改list 的引用 vue set 方法 -->
+		<!-- push pop shift unshift splice sort reverse -->
+		<div id="app">
+			<template v-for="(item,index) of list" 
+				:key="item.id">
+				<div >
+					{{item.text}}---{{index}}
+				</div>
+				<span >
+					{{item.text}}
+					</span>
+			</template>
+			
+		</div>
+		
+		<script>
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					list:[{
+							id:"48855",
+							text:"gekko"
+					},{
+							id:"48856",
+							text:"gekk1"
+					},{
+							id:"48854",
+							text:"gekko2"
+					}]
+				}
+			})
+		</script>
+	</body>
+</html>

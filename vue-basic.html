@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue 实例生命周期函数</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+	</body>
+	<script>
+		//生命周期函数是特定时期执行的函数
+		var vm = new Vue({
+			el:"#app",
+			template:"<div>{{test}} </div>",
+			data:{
+				test:"hello vue 2"
+			},
+			methods:{
+				
+			},
+			beforeCreate:function(){
+				console.log("beforeCreate");
+			},
+			created:function(){
+				console.log("created");
+			},
+			beforeMount:function(){
+				console.log(this.$el);
+				console.log("bdeforeMount");
+			},
+			mounted:function(){
+				console.log(this.$el);
+				console.log("mounted");
+			},
+			beforeDestory:function(){
+				console.log("beforeDestory");
+			},
+			destoryed:function(){
+				console.log("destory");
+			},
+			beforeUpdate:function(){
+				console.log("beforeupdate");
+			},
+			updated:function(){
+				console.log("updated");
+			}
+		})
+	</script>
+</html>

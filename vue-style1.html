@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue 中的样式绑定1</title>
+		<style>
+			.activated {
+				color: red;
+			}
+		</style>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+
+			<div @click="handleDivClick" 
+			:class="[activated,activateOne]">
+				hello world
+			</div>
+
+		</div>
+
+		<script>
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					activated: "",
+					activateOne:"activateOne"
+				},
+				methods: {
+					handleDivClick: function() {
+						this.activated = this.activated === "activated"?
+						"": "activated"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

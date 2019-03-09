@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue 组件中细节</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div ref='hello' @click="handleClick">
+				hello vue
+			</div>
+
+		</div>
+
+		<script>
+			var vm = new Vue({
+				el: "#app",
+				data: {
+
+				},
+				methods: {
+					handleClick: function() {
+						console.log(this.$refs.hello.innerHTML)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>非props 特性</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<child content="222"></child>
+			<child content="hello Vue"></child>
+		</div>
+
+		<script>
+			Vue.component('child', {
+			// 没有申明props 无法获取父组件传递的传值
+				template: "<div>止</div>"
+			})
+
+			var vm = new Vue({
+				el: "#app",
+				data: {
+
+				},
+				methods: {
+
+				}
+			})
+		</script>
+	</body>
+</html>

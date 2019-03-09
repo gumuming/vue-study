@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>条件渲染</title>
+			<script src="https://cdn.jsdelivr.net/npm/vue"></script
+	</head>
+	<body>
+		<div id="app">
+		<!-- 	<div v-if="show" data-test="v-if">{{message}}</div>
+			<div v-show="show" data-test="v-show">{{message}}</div>
+			
+			<div v-if="show">{{message}} 3</div>
+			<div v-else>bye bye</div> -->
+			
+			<!-- <div v-if="show==='a'">this is a</div>
+			<div v-else-if="show==='b'">this is b </div>
+			<div v-else>bye vue</div> -->
+			
+			<div v-if="show">
+				用户名：<input key = "userName"/>
+			</div >
+				
+			<div v-else>
+				邮箱名：<input key= "password"/>
+			</div>
+			<div></div>
+			
+		</div>
+		<script>
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					show:true
+				//	message:"hello vue"
+				}
+			})
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- mvp模式 -->
+<!--m 模型层 v 视图 p 控制器 -->
+<!-- 面向dom编程 -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> jquery to do list</title>
+		<!-- <script>../jquery-1.7.2.js</script> -->
+		<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	</head>
+	<body>
+		<div>
+			<input  id = "input" type="text" />
+			<button id="btn">提交</button>
+			<ul id = "list"><ul>		
+		</div>
+		
+	</body>
+	<script>
+		function Page(){		
+		}
+		$.extend(Page.prototype,{
+			init:function(){
+				this.bindEvents()
+			},
+			bindEvents:function(){
+				var btn = $('#btn');
+				btn.on('click',$.proxy(this.handleBtnClick,this))
+			},
+			handleBtnClick:function(){
+				// alert(124);
+				var inputElem = $('#input');
+				var inputValue = $("#input").val();
+				var ulElem = $("#list");
+				ulElem.append('<li>'+inputValue+'</li>')
+				inputElem.val('');
+			}		
+		})
+		var page = new Page();
+		page.init();
+	</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>在vue中使用插槽</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<child-test>
+				<div class="header" slot="header">header</div>
+				<div class="footer" slot="footer">footer</div>
+		
+			</child-test><slot name='footer'> </slot>
+
+		</div>
+
+		<script>
+			Vue.component('child-test', {
+				template: '<div><slot name="header"> </slot> <div>dddd</div><slot name="footer"></slot></div>'
+			})
+
+			var vm = new Vue({
+				el: "#app",
+				data: {
+
+				},
+				methods: {
+
+				}
+			})
+		</script>
+	</body>
+</html>

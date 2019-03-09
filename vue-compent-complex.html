@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>非父子组件传值*(Bus总线 发布订阅模式 观察模式)</title>
+		<!-- vx 插件 发布 总线机制来解决非父子组件传值问题 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<child content="dell"></child>
+			<child content="lrr "></child>
+
+		</div>
+
+		<script>
+			Vue.prototype.bus = new Vue();
+
+			Vue.component('child', {
+				props:{
+					content:String
+				},
+				data: function() {
+					return {
+						selfContent: this.content
+					}
+				},
+				template: '<div @click = "handleClick">{{selfContent}}</div>',
+				methods: {
+					handleClick: function() {
+						this.bus.$emit('change', this.selfContent)
+					}
+				},
+				mounted: function() {
+					var _this = this;
+					this.bus.$on('change', function(msg) {
+						_this.selfContent = msg
+					})
+				}
+			})
+
+			var vm = new Vue({
+				el: "#app",
+				data: {
+
+				},
+				methods: {
+
+				}
+			})
+		</script>
+	</body>
+</html>
